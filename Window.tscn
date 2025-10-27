@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://bygswdcb0cwg1"]
+
+[ext_resource type="PackedScene" uid="uid://cykcmtub46b4s" path="res://TestScene.tscn" id="1_808dq"]
+[ext_resource type="Script" uid="uid://b24jay6wdg8tk" path="res://FakeWindow.gd" id="1_wdeh2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnx71"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 0.6)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wdeh2"]
+outline_color = Color(0, 0, 0, 0)
+stacked_outline_count = 4
+stacked_outline_0/size = 8
+stacked_outline_1/size = 4
+stacked_outline_1/color = Color(0, 0, 1, 1)
+stacked_outline_2/size = 4
+stacked_outline_2/color = Color(0, 1, 0, 1)
+stacked_outline_3/size = 4
+stacked_outline_3/color = Color(1, 0, 0, 1)
+
+[node name="Panel" type="Panel"]
+offset_right = 1280.0
+offset_bottom = 756.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wnx71")
+script = ExtResource("1_wdeh2")
+
+[node name="viewport" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -720.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SubViewport" type="SubViewport" parent="viewport"]
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="scene" parent="viewport/SubViewport" instance=ExtResource("1_808dq")]
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1247.0
+offset_top = 3.0
+offset_right = 1277.0
+offset_bottom = 34.0
+focus_mode = 0
+focus_behavior_recursive = 1
+theme_override_font_sizes/font_size = 12
+text = "X"
+icon_alignment = 1
+
+[node name="Fullscreen" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1214.0
+offset_top = 3.0
+offset_right = 1244.0
+offset_bottom = 34.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 12
+text = "[ ]"
+icon_alignment = 1
+
+[node name="Hide" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1180.0
+offset_top = 3.0
+offset_right = 1210.0
+offset_bottom = 34.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 12
+text = "-"
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_right = 285.0
+offset_bottom = 36.0
+text = "The Dubiously Savoury Video Game"
+label_settings = SubResource("LabelSettings_wdeh2")
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="viewport" to="." method="_on_viewport_mouse_entered"]
+[connection signal="mouse_exited" from="viewport" to="." method="_on_viewport_mouse_exited"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

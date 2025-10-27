@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce188bcbsvkjb"]
+
+[ext_resource type="Script" uid="uid://djioik1xt3cdo" path="res://WindowMan.gd" id="1_1fnrs"]
+[ext_resource type="PackedScene" uid="uid://bygswdcb0cwg1" path="res://Window.tscn" id="2_wnx71"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wnx71"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1fnrs")
+
+[node name="Panel" parent="." instance=ExtResource("2_wnx71")]
+offset_left = 349.0
+offset_top = 155.0
+offset_right = 1629.0
+offset_bottom = 911.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 68.0
+offset_bottom = 26.0
+text = "FPS: 120"
+label_settings = SubResource("LabelSettings_wnx71")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cykcmtub46b4s"]
+
+[sub_resource type="Gradient" id="Gradient_pn5b2"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mncer"]
+gradient = SubResource("Gradient_pn5b2")
+fill = 1
+fill_from = Vector2(0.5420561, 0.52803737)
+fill_to = Vector2(0.42990655, 0.80841124)
+
+[sub_resource type="Gradient" id="Gradient_cguwc"]
+offsets = PackedFloat32Array(0, 0.34246576)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="TestScene" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "oh im windowing, it
+
+oughhhhhhhhh"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(643, 721)
+amount = 200
+texture = SubResource("GradientTexture2D_mncer")
+lifetime = 5.0
+direction = Vector2(0, -500)
+spread = 12.13
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+color_ramp = SubResource("Gradient_cguwc")
